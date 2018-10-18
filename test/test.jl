@@ -56,11 +56,11 @@ testfunc4()
 
 function testfunc5(n, dt, tsleep, desc, barlen)
     p = ProgressMeter.Progress(n, dt, desc, barlen)
-    for i = 1:round(Int, floor(n/2))
+    for i = 1:round(Int, fld(n,2))
         sleep(tsleep)
         ProgressMeter.next!(p)
     end
-    for i = round(Int, ceil(n/2)):n
+    for i = round(Int, cld(n,2)):n
         sleep(tsleep)
         ProgressMeter.next!(p, :red)
     end
